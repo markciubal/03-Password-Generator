@@ -4,8 +4,6 @@ var lowercaseCharacters = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k
 var numberCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialCharacters = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 
-var characterTypes = ['uppercaseCharacters', 'lowercaseCharacters', 'numberCharacters', 'specialCharacters'];
-
 var generateBtn = document.querySelector("#generate");
 
 function promptLength()  {
@@ -66,25 +64,25 @@ function generatePassword(passwordLength) {
     generatedPassword.push(...String(randomCharacter));
   }
   if (useUppercase) { 
-    if (generatedPassword.some(r=> uppercaseCharacters.indexOf(r) >= 0)) {
+    if (generatedPassword.some(r => uppercaseCharacters.indexOf(r) >= 0)) {
     } else {
       generatePassword(passwordLength);
     }
   }
   if (useLowercase) {
-    if (generatedPassword.some(r=> lowercaseCharacters.indexOf(r) >= 0)) {
+    if (generatedPassword.some(r => lowercaseCharacters.indexOf(r) >= 0)) {
     } else {
       generatePassword(passwordLength);
     }
   }
   if (useNumeric) {
-    if (generatedPassword.some(r=> numberCharacters.indexOf(r) >= 0)) {
+    if (generatedPassword.some(r => numberCharacters.indexOf(r) >= 0)) {
     } else {
       generatePassword(passwordLength);
     }
   }
   if (useSpecial) {
-    if (generatedPassword.some(r=> specialCharacters.indexOf(r) >= 0)) {
+    if (generatedPassword.some(r => specialCharacters.indexOf(r) >= 0)) {
     } else {
       generatePassword(passwordLength);
     }
