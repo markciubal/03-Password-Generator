@@ -76,7 +76,7 @@ function generatePassword(passwordLength) {
     generatedPassword.push(...String(randomCharacter));
   }
 
-  // Logic to confirm each type of character is included in the final password. If not, the function uses recursion to regenerates a new password and checks until all character types are used.
+  // Logic to confirm each type of character is included in the final password. If not, the function uses recursion to regenerates a new password and checks until all selected character types are used.
   if (useUppercase) { 
     if (generatedPassword.some(r => uppercaseCharacters.indexOf(r) >= 0)) {
     } else {
