@@ -7,15 +7,14 @@ var specialCharacters = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", 
 
 var generateBtn = document.querySelector("#generate");
 
+var length;
 // Prompt for length, with recursion if invalid input.
 function promptLength()  {
-  var length = prompt("Enter the length of the desired password (between 8 and 128).");
+  length = prompt("Enter the length of the desired password (between 8 and 128).");
   if (length >= 8 && length <= 128) {
     return length;
-  } else if (length == null) {
-    void(0);
   } else {
-    promptLength();
+    return promptLength();
   }
 }
 // Prompt user for each type of character set.
@@ -77,7 +76,7 @@ function generatePassword(passwordLength) {
     generatedPassword.push(...String(randomCharacter));
   }
 
-  // Logic to confirm each type of character is included in the final password. If not, the function uses recursion to regenerate a new password and checks until all character types are used.
+  // Logic to confirm each type of character is included in the final password. If not, the function uses recursion to regenerates a new password and checks until all character types are used.
   if (useUppercase) { 
     if (generatedPassword.some(r => uppercaseCharacters.indexOf(r) >= 0)) {
     } else {
@@ -110,11 +109,11 @@ function generatePassword(passwordLength) {
 // Write password to the #password input
 function writePassword() {
   var passwordLength = promptLength();
-  if (passwordLength != null) {
-    var password = generatePassword(passwordLength);
-    var passwordText = document.querySelector("#password");
-    passwordText.value = password;
-  }
+  var password = generatePassword(passwordLength);
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+  passwordLength = '';
 
 }
 
