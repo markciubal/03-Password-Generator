@@ -13,8 +13,13 @@ function promptLength()  {
   length = prompt("Enter the length of the desired password (between 8 and 128).");
   if (length >= 8 && length <= 128) {
     return length;
-  } else {
+  } else if ((length <= 7 || length >= 129) && length != null) {
+    console.log(length);
+
     return promptLength();
+    
+  } else {
+    console.log(length);
   }
 }
 // Prompt user for each type of character set.
@@ -109,11 +114,13 @@ function generatePassword(passwordLength) {
 // Write password to the #password input
 function writePassword() {
   var passwordLength = promptLength();
-  var password = generatePassword(passwordLength);
-  var passwordText = document.querySelector("#password");
+  if (passwordLength != null) {
+    var password = generatePassword(passwordLength);
+    var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-  passwordLength = '';
+    passwordText.value = password;
+    passwordLength = '';
+  }
 
 }
 
